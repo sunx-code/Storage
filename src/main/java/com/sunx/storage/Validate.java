@@ -51,13 +51,14 @@ public class Validate {
 	}
 	/**
 	 * 判断给定的一个数组是否为空
-	 * @param bytes
+	 * @param collection
 	 * @return
 	 */
 	public static boolean isEmpty(Collection<? extends Object> collection){
 		if(collection.size() <= 0)return judge(true,"");
 		return judge(false,"");
 	}
+
 	/**
 	 * 判断给定的数组是否为空
 	 * @param bytes

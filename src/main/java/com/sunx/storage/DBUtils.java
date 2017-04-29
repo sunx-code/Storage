@@ -78,7 +78,7 @@ public class DBUtils {
 				}
 				Object bean = f.get(t);
 				//过滤掉值为null的数据
-				if(bean == null)continue;
+//				if(bean == null)continue;
 				cell.put(name, bean);
 			} catch (IllegalArgumentException e) {
 				e.printStackTrace();

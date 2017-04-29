@@ -93,7 +93,9 @@ public class Test {
         for(int i=0;i<100;i++){
             User u = new User();
             u.setUserAge(i);
-            u.setUserName("name:" + i);
+            if(i % 2 == 0){
+                u.setUserName("name:" + i);
+            }
 
             us.add(u);
         }

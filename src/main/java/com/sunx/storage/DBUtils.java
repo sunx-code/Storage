@@ -214,6 +214,7 @@ public class DBUtils {
 		if(strs.length != objs.length)return "";
 		buff.append(condition);
 		for(int i=0;i<strs.length;i++){
+			if(Validate.isNull(objs[i]))continue;
 			if(objs[i] instanceof String){
 				if(strs[i].contains(" ")){
 					buff.append(strs[i] + " '" + objs[i] + "'");

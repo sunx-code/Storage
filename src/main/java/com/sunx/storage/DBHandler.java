@@ -59,6 +59,7 @@ public class DBHandler {
 			flag = true;
 			System.out.println(Thread.currentThread().getName() + ",执行批量添加结束......");
 		} catch (Exception e) {
+			e.printStackTrace();
 		}finally{
 			DBUtils.toClose(pstmt, null);
 			DuridPool.me().recycle(conn);

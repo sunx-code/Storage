@@ -312,18 +312,38 @@ public class DBFactory {
 	 * @param pool	数据库连接池对应的名称
 	 * @param t 	实体bean
 	 * @param <T>
-     * @return
-     */
+	 * @return
+	 */
 	public <T> List<T> select(String pool, T t){
 		if(Validate.isStrEmpty(pool) || Validate.isNull(t))return null;
 		String table = DBUtils.table(t);
 		Map<String,Object> conditions = DBUtils.toMap(t);
 		if(Validate.isNull(table) || Validate.isNull(conditions) || Validate.isEmpty(conditions.keySet()))return null;
 		return select(pool,
-					  table,
-					  conditions.keySet().toArray(new String[conditions.size()]),
-					  conditions.values().toArray(new Object[conditions.size()]),
-					  t.getClass());
+				table,
+				conditions.keySet().toArray(new String[conditions.size()]),
+				conditions.values().toArray(new Object[conditions.size()]),
+				t.getClass());
+	}
+
+	/**
+	 * 根据实体bean中不为空的字段的值进行查询
+	 * @param pool	数据库连接池对应的名称
+	 * @param t 	实体bean
+	 * @param <T>
+	 * @return
+	 */
+	public <T> List<T> select(String pool, T t,int topNum){
+		if(Validate.isStrEmpty(pool) || Validate.isNull(t))return null;
+		String table = DBUtils.table(t);
+		Map<String,Object> conditions = DBUtils.toMap(t);
+		if(Validate.isNull(table) || Validate.isNull(conditions) || Validate.isEmpty(conditions.keySet()))return null;
+		return select(pool,
+				table,
+				conditions.keySet().toArray(new String[conditions.size()]),
+				conditions.values().toArray(new Object[conditions.size()]),
+				topNum,
+				t.getClass());
 	}
 
 	/**
